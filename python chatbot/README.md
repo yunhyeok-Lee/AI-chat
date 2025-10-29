@@ -1,15 +1,15 @@
 # AI 챗봇 프로젝트
 
-OpenAI API를 사용한 한국어 AI 챗봇입니다. 웹 인터페이스와 CLI 모드를 모두 지원합니다.
+OpenAI API를 사용한 한국어 웹 챗봇입니다. 간단한 UI에서 메시지를 입력하면, 세션별 문맥을 유지하며 자연스럽게 대화합니다. 브라우저에 대화 기록이 저장되어 새로고침 후에도 최근 대화를 확인할 수 있습니다.
 
 ## 주요 기능
 
-- 🤖 OpenAI GPT를 사용한 자연스러운 한국어 대화
-- 💬 대화 문맥 유지 (세션별 메모리)
-- 🌐 깔끔한 웹 인터페이스
-- 💾 브라우저 로컬스토리지를 통한 대화 기록 저장
-- 🚀 AWS 배포 지원
-- 📱 반응형 디자인
+- 🤖 OpenAI GPT 기반 자연스러운 한국어 대화
+- 💬 세션별 문맥 유지 (서버 메모리)
+- 💾 브라우저 로컬스토리지 저장으로 새로고침 후에도 기록 유지
+- 🧹 "대화 지우기" 버튼 제공
+- ⌨️ Enter 전송 / Shift+Enter 줄바꿈
+- 📱 반응형 UI
 
 ## 설치 및 실행
 
@@ -34,43 +34,16 @@ CHATBOT_DEBUG=1
 python frontend_server.py
 ```
 
-브라우저에서 `http://localhost:8000`에 접속하세요.
+브라우저에서 다음 주소로 접속하세요:
+- 로컬 실행 주소: `http://localhost:8000`
+- 배포 주소: `http://43.201.66.249:8000`
 
 ### 4. CLI 모드 실행 (선택사항)
 ```bash
 python Chatbot
 ```
 
-## AWS 배포
-
-### Heroku 배포
-1. Heroku CLI 설치 및 로그인
-2. 새 앱 생성: `heroku create your-chatbot-app`
-3. 환경 변수 설정: `heroku config:set OPENAI_API_KEY=your_key`
-4. 배포: `git push heroku main`
-
-### AWS EC2 배포
-1. EC2 인스턴스 생성 (Ubuntu 20.04 권장)
-2. 필요한 패키지 설치:
-   ```bash
-   sudo apt update
-   sudo apt install python3-pip python3-venv
-   ```
-3. 프로젝트 클론 및 설정:
-   ```bash
-   git clone your-repo-url
-   cd python-chatbot
-   python3 -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
-4. 환경 변수 설정 후 실행:
-   ```bash
-   export OPENAI_API_KEY=your_key
-   export CHATBOT_HOST=0.0.0.0
-   export CHATBOT_PORT=80
-   python frontend_server.py
-   ```
+배포 방법 관련 기존 안내는 제거되었습니다.
 
 ## 프로젝트 구조
 
@@ -82,7 +55,7 @@ python chatbot/
 ├── static/
 │   └── index.html      # 웹 인터페이스
 ├── requirements.txt    # Python 의존성
-├── Procfile           # Heroku 배포용
+├── Procfile           # 프로세스 정의 (선택)
 └── README.md          # 이 파일
 ```
 
@@ -96,3 +69,4 @@ python chatbot/
 ## 라이센스
 
 MIT License
+
